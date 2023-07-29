@@ -60,7 +60,7 @@ def lucky_mode():
     clear()
 
     print("You have ONLY 1 chance to guess the number")
-    print("The number is between 1 to 50")
+    print("The number is between 1 to 10")
     print("Let's see how lucky you are")
     
     guess = get_guess()
@@ -102,10 +102,11 @@ def main():
                 break
             elif guess > ans:
                 print(f"\nLower than {guess}\n")
-                print(f"Remaining guess: {lives}")
-            else:
+                print(f"Remaining guess: {lives}\n")
+            elif guess < ans:
                 print(f"\nHigher than {guess}\n")
-                print(f"Remaining guess: {lives}")
+                print(f"Remaining guess: {lives}\n")
+            pause = input("Press Enter to keep playing...")
 
         if lives == 0:
             print(f"\nThe number was {ans}!")
