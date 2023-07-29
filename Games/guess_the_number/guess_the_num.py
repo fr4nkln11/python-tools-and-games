@@ -94,7 +94,6 @@ def main():
         ans = get_randint()
         
         while lives > 0:
-            clear()
             guess = get_guess()
             lives -= 1
             if guess == ans:
@@ -106,7 +105,9 @@ def main():
             elif guess < ans:
                 print(f"\nHigher than {guess}\n")
                 print(f"Remaining guess: {lives}\n")
-            pause = input("Press Enter to keep playing...")
+            pause = input("Press any key to continue...")
+            clear()
+
 
         if lives == 0:
             print(f"\nThe number was {ans}!")
