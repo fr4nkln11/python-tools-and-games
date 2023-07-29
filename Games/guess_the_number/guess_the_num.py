@@ -1,19 +1,11 @@
 import random
 import os
-from sys import platform
 from time import sleep
 
 # Clears command line
 def clear():
-    if platform == "linux" or platform == "linux2":
-        # linux
-        os.system("clear")
-    elif platform == "darwin":
-        # OS X
-        os.system("clear")
-    elif platform == "win32":
-        # Windows...
-        os.system("CLS")
+    # clear screen on Linux, OS X, and Windows
+    os.system("clear||cls")
 
 MIN = 1
 MAX = 100
