@@ -37,15 +37,15 @@ def mode():
     while True:
         print("Easy: 10 chances | Hard: 5 chances")
         print("You're feeling extremely lucky? try `LUCKY`\n")
-        mode = input("Choose your difficulty level\n'Easy'  'Hard'  'LUCKY' : ")
+        mode = input("Choose your difficulty level\n'[E]asy' '[H]ard' '[L]UCKY' : ")
         if isinstance(mode, str):
             mode = mode.lower()
-            if mode == "easy" or mode == "hard" or mode == "lucky":
+            if mode in ['e', 'h', 'l', "easy", "hard", "lucky"]:
                 break
             else:
-                print("You have to choose 'easy'  'hard'  'lucky'!")
+                print("You have to choose '[E]asy' '[H]ard' '[L]UCKY'!")
         else:
-            print("You hav to choose 'easy'  'hard'  'lucky'!")
+            print("You have to choose '[E]asy' '[H]ard' '[L]UCKY'!")
     return mode
 
 
@@ -59,11 +59,11 @@ def main():
             exit()
 
         level = mode()
-        if level == "easy":
+        if level == "easy" or level == 'e':
             lives = 10
-        elif level == "hard":
+        elif level == "hard" or level == 'h':
             lives = 5
-        else:
+        elif level == "lucky" or level == 'l':
             lives = 1
             ans = get_lucky()
             clear()
@@ -89,6 +89,7 @@ def main():
         ans = get_randint()
         
         while lives > 0:
+            clear()
             guess = get_guess()
             lives -= 1
             if guess == ans:
