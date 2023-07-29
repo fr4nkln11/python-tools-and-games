@@ -48,6 +48,12 @@ def mode():
             print("You have to choose '[E]asy' '[H]ard' '[L]UCKY'!")
     return mode
 
+def restart():
+    for i in range(5, 0, -1):
+        sleep(1)
+        print(f"Restarting the game in {i} seconds...", end="\r")
+    clear()
+    main()
 
 def main():
     lives = 0 
@@ -79,11 +85,7 @@ def main():
             else:
                 print(f"The number was {ans}")
             
-            for i in range(5, 0, -1):
-                sleep(1)
-                print(f"Restarting the game in {i} seconds...", end="\r")
-            clear()
-            main()
+            restart()
 
         
         ans = get_randint()
@@ -105,14 +107,10 @@ def main():
         if lives == 0:
             print(f"\nThe number was {ans}!")
 
-        for i in range(5, 0, -1):
-            sleep(1)
-            print(f"Restarting the game in {i} seconds...", end="\r")
-        clear()
-        main()
+        restart()
 
         
 clear()
-print("                        Welcome to Geuss The Number!")
+print("                        Welcome to Guess The Number!")
 print("Rules are simple, I'll choose a number 1 to 100 and you have to guess it right!\n")
 main()
