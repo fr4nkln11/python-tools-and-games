@@ -55,6 +55,25 @@ def restart():
     clear()
     main()
 
+def lucky_mode():
+    ans = get_lucky()
+    clear()
+
+    print("You have ONLY 1 chance to guess the number")
+    print("The number is between 1 to 50")
+    print("Let's see how lucky you are")
+    
+    guess = get_guess()
+
+    if guess == ans:
+        print("       CONGRATS!")
+        print("WOW you really are lucky!")
+        print("possibility was 2%")
+    else:
+        print(f"The number was {ans}")
+    
+    restart()
+
 def main():
     lives = 0 
 
@@ -70,23 +89,7 @@ def main():
         elif level == "hard" or level == 'h':
             lives = 5
         elif level == "lucky" or level == 'l':
-            lives = 1
-            ans = get_lucky()
-            clear()
-            print("You have ONLY 1 chance to guess the number")
-            print("The number is between 1 to 50")
-            print("Let's see how lucky you are")
-            
-            guess = get_guess()
-            if guess == ans:
-                print("       CONGRATS!")
-                print("WOW you really are lucky!")
-                print("possibility was 2%")
-            else:
-                print(f"The number was {ans}")
-            
-            restart()
-
+            lucky_mode()
         
         ans = get_randint()
         
